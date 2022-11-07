@@ -1,12 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useContext } from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { authContext } from './Context/ContextApi';
+import { routerGoro } from './Router/Router';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <h1>testing</h1>
+    <div>
+      <RouterProvider router={routerGoro}></RouterProvider>
     </div>
   );
-}
+};
 
 export default App;
