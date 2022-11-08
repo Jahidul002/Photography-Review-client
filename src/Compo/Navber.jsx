@@ -13,6 +13,7 @@ const Navber = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <Link className='btn btn-outline btn-primary  btn-xs' to="">Home</Link>
                             <Link className='btn btn-outline btn-primary  btn-xs' to="">Services</Link>
+                            <Link className='btn btn-outline btn-primary  btn-xs' to="blog">Blog</Link>
                             <Link className='btn btn-outline btn-primary  btn-xs' to="">Sign In</Link>
                             <Link className='btn btn-outline btn-primary  btn-xs' to="">Sign UP</Link>
                         </ul>
@@ -23,6 +24,7 @@ const Navber = () => {
                     <ul className="menu menu-horizontal p-0">
                         <Link className='btn btn-outline btn-primary mx-3' to="">Home</Link>
                         <Link className='btn btn-outline btn-primary mx-3' to="">Services</Link>
+                        <Link className='btn btn-outline btn-primary mx-3' to="blog">Blog</Link>
                         <Link className='btn btn-outline btn-primary mx-3' to="">Sign In</Link>
                         <Link className='btn btn-outline btn-primary mx-3' to="">Sign Up</Link>
                     </ul>

@@ -1,9 +1,16 @@
 import React from 'react';
+import DetailsBloGG from './DetailsBloGG';
+import DetailsBloG from './DetailsBloG';
+import Banner from './Banner';
+import Demo from './Demo';
 
 const Home = () => {
     return (
         <div>
-            <h1>home</h1>
+            <Banner></Banner>
+            <DetailsBloGG></DetailsBloGG>
+            <DetailsBloG></DetailsBloG>
+            <Demo></Demo>
         </div>
     );
 };
