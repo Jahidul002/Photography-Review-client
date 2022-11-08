@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import DisplayDemo from './DisplayDemo';
 
 const Demo = () => {
@@ -19,7 +20,9 @@ const Demo = () => {
                     demoData.map(dt => <DisplayDemo key={dt._id} data={dt}></DisplayDemo>)
                 }
             </div>
-            <button className='btn btn-wide  btn-success my-10'>Load More</button>
+            <Link to="services">
+                <button className='btn btn-wide  btn-success my-10'>Load More</button>
+            </Link>
         </div>
     );
 };
