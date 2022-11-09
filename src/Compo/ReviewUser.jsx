@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewUser = ({ data }) => {
     const { Photo, email, eventName, name, review } = data
-    console.log(data);
+    console.log(Photo);
     return (
         <tr>
             <td>
@@ -24,7 +24,7 @@ const ReviewUser = ({ data }) => {
             </td>
             <td>{eventName}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">{email}</button>
+                <h1>{email}</h1>
             </th>
         </tr>
     );

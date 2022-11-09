@@ -2,7 +2,7 @@
 # install-Tailwind
 # install-router-dom
 # install-daisyUi
-# install-
+# install-heroIcon
 # install-
 # install-
 # install-

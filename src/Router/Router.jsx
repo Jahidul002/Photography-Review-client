@@ -1,12 +1,13 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import AddEvent from '../Compo/AddEvent';
 import AddReview from '../Compo/AddReview';
 import AllServices from '../Compo/AllServices';
 import Blog from '../Compo/Blog';
 import Home from '../Compo/Home';
 import LogIn from '../Compo/LogIn';
+import PrivateRoute from '../Compo/PrivateRoute';
 import Register from '../Compo/Register';
-import ReviewForm from '../Compo/ReviewForm';
 import Root from '../Compo/Root';
 import SingleService from '../Compo/SingleService';
 
@@ -42,13 +43,13 @@ export const routerGoro = createBrowserRouter([
                 element: <SingleService></SingleService>
             },
             {
-                path: 'review',
-                element: <ReviewForm></ReviewForm>
-            },
-            {
                 path: 'review/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/data/${params.id}`),
-                element: <AddReview></AddReview>
+                element: <PrivateRoute><AddReview></AddReview></PrivateRoute>
+            },
+            {
+                path: 'eventadd',
+                element: <PrivateRoute><AddEvent></AddEvent></PrivateRoute>
             }
         ]
     }

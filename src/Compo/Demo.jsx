@@ -15,6 +15,7 @@ const Demo = () => {
     // console.log(demoData);
     return (
         <div className='flex flex-col items-center mx-10'>
+            <h1 className='text-3xl font-bold underline mb-3'>My Some Creation</h1>
             <div className='md:grid grid-cols-3 gap-10 container mx-auto'>
                 {
                     demoData.map(dt => <DisplayDemo key={dt._id} data={dt}></DisplayDemo>)

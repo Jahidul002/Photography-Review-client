@@ -10,7 +10,7 @@ const DisplayDemo = ({ data }) => {
                 <figure><img src={img} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{catagory}</h2>
-                    <p>Clicked by:<span className='text-lg text-emerald-600 font-mono font-bold'>{provider}</span></p>
+                    <p>client:<span className='text-lg text-emerald-600 font-mono font-bold'>{provider}</span></p>
                     <div className="card-actions justify-end">
                     </div>
                 </div>

@@ -1,41 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
-import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import { authContext } from '../Context/ContextApi';
 
-const AddReview = () => {
+const AddEvent = () => {
     const { user } = useContext(authContext)
-    const [data, setData] = useState()
-    const allDAta = useLoaderData()
-    const { catagory, _id } = allDAta
-    // console.log(catagory, _id);
-    const handleSub = (event) => {
-        event.preventDefault()
-        const form = event.target
-        const name = form.name.value
-        const email = form.email.value
-        const Photo = form.url.value
-        const number = form.number.value
-        const reviewTxt = form.review.value
-        const reviewData = {
-            eventName: catagory,
-            eventID: _id,
-            name: name,
-            email: email,
-            Photo: Photo,
-            number: number,
-            review: reviewTxt
-        }
-        fetch('http://localhost:5000/reviews', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
+    const handleSub = (e) => {
+
     }
 
 
@@ -53,13 +23,13 @@ const AddReview = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="text" name='email' placeholder="email" defaultValue={user?.email} className="input input-bordered" />
+                    <input type="text" name='email' placeholder="email" defaultValue={user?.email} className="input input-bordered" readonly />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Photo</span>
                     </label>
-                    <input type="text" name='url' placeholder="email" defaultValue={user?.photoURL} className="input input-bordered" />
+                    <input type="text" name='url' placeholder="photo url" className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -71,7 +41,7 @@ const AddReview = () => {
                     <label className="label">
                         <span className="label-text">Review</span>
                     </label>
-                    <textarea name='review' className="textarea textarea-primary" placeholder="Bio"></textarea>
+                    <textarea name='review' className="textarea textarea-primary" placeholder="write something"></textarea>
                 </div>
                 <div className="form-control mt-6">
                     <button className='btn btn-success' type="submit">Add Review</button>
@@ -81,4 +51,4 @@ const AddReview = () => {
     );
 };
 
-export default AddReview;
+export default AddEvent;

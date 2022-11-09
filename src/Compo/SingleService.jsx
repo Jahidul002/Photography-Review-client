@@ -1,10 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import ReviewUser from './ReviewUser';
+import { authContext } from '../Context/ContextApi'
+
 
 const SingleService = () => {
+    const { user } = useContext(authContext)
     const [rev, setRev] = useState()
     const allData = useLoaderData()
     const { about, catagory, device, price, img, _id, provider } = allData
@@ -46,6 +50,7 @@ const SingleService = () => {
                                 <th>Review</th>
                                 <th>Event Name</th>
                                 <th>Email</th>
+                                {user?.uid ? <th>Action</th> : ""}
                             </tr>
                         </thead>
                         <tbody>

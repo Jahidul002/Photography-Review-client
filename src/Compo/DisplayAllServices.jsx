@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const DisplayAllServices = ({ data }) => {
 
-    const { about, catagory, device, img, _id, provider } = data
+    const { about, catagory, device, img, _id, provider, price } = data
 
 
     return (
@@ -13,6 +13,7 @@ const DisplayAllServices = ({ data }) => {
                 <p className='font-mono'>Device:{device}</p>
                 <div className="card-body">
                     <h2 className="card-title">{catagory}</h2>
+                    <p>price:,$<span className='text-red-700 font-semibold'>{price}</span></p>
                     <p className='font-serif'>{about.slice(0, 50)}....<Link to={`/service/${_id}`} className='text-sky-600 underline'>See More</Link></p>
                     <div className="card-actions justify-end">
                         <Link to={`/service/${_id}`} >
