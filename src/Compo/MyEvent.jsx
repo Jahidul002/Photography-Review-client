@@ -20,7 +20,7 @@ const MyEvent = () => {
     return (
         <div className='md:grid grid-cols-3 gap-10'>
             {
-                event?.map(ev => <DisplayMyEvent key={ev._id} data={ev}></DisplayMyEvent>)
+                event?.length === 0 ? <><p className='text-rose-800 text-4xl font-extrabold text-center'>No Services Added</p></> : <>{event?.map(ev => <DisplayMyEvent key={ev._id} data={ev}></DisplayMyEvent>)}</>
             }
         </div>
     );
