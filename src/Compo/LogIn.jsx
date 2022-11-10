@@ -22,9 +22,18 @@ const LogIn = () => {
         signIN(email, password)
             .then(res => {
                 const user = res.user
-                console.log(user);
+
+                fetch('http://localhost:5000/jwt', {
+                    method: "POST",
+                    headers: {
+
+                    }
+                })
+
+
+
                 form.reset()
-                navigate(from, { replace: true })
+                // navigate(from, { replace: true })
             })
             .then(res => res.json())
             .catch(err => console.error(err))

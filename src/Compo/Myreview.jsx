@@ -14,11 +14,17 @@ const Myreview = () => {
             .then(data => setReview(data))
     }, [user?.email])
     // console.log(review);
+
     return (
         <div className='md:grid grid-cols-3'>
-            {
-                review?.map(dt => <DisplayMyReview key={dt._id} data={dt}></DisplayMyReview>)
+            {review?.length === 0 ? <p className='text-rose-800 text-4xl font-extrabold text-center'>No Review Added</p> :
+                <>
+                    {
+                        review?.map(dt => <DisplayMyReview key={dt._id} data={dt}></DisplayMyReview>)
+                    }
+                </>
             }
+
         </div>
     );
 };
