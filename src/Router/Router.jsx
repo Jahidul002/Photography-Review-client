@@ -28,7 +28,7 @@ export const routerGoro = createBrowserRouter([
             },
             {
                 path: 'services',
-                loader: () => fetch('http://localhost:5000/data'),
+                loader: () => fetch('https://assignment-11-server-sable.vercel.app/data'),
                 element: <AllServices></AllServices>
             },
             {
@@ -41,12 +41,12 @@ export const routerGoro = createBrowserRouter([
             },
             {
                 path: 'service/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/data/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-11-server-sable.vercel.app/data/${params.id}`),
                 element: <SingleService></SingleService>
             },
             {
                 path: 'review/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/data/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-11-server-sable.vercel.app/data/${params.id}`),
                 element: <PrivateRoute><AddReview></AddReview></PrivateRoute>
             },
             {
@@ -59,7 +59,7 @@ export const routerGoro = createBrowserRouter([
             },
             {
                 path: 'addedevent',
-                loader: () => fetch('http://localhost:5000/services'),
+                loader: () => fetch('https://assignment-11-server-sable.vercel.app/services'),
                 element: <MyEvent></MyEvent>
             }
 

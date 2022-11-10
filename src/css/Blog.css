@@ -1,0 +1,33 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+}
+
+.q1 {
+    background-color: #00ffff3d;
+}
+
+.qq1 {
+    background-color: #00ffff79;
+}
+
+.q2 {
+    background-color: #fd89053d;
+}
+
+.qq2 {
+    background-color: #ff880079;
+}
+
+.q3 {
+    background-color: #1100ff3d;
+}
+
+.qq3 {
+    background-color: #3700ff79;
+}

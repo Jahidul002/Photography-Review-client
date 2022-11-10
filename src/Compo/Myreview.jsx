@@ -9,7 +9,7 @@ const Myreview = () => {
     const { user } = useContext(authContext)
     const [review, setReview] = useState()
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+        fetch(`https://assignment-11-server-sable.vercel.app/review?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email])

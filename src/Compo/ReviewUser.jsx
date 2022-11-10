@@ -3,13 +3,13 @@ import { BeakerIcon, TrashIcon } from '@heroicons/react/24/solid'
 
 const ReviewUser = ({ data }) => {
     const { _id, Photo, email, eventName, name, review } = data
-    console.log(_id);
+    // console.log(_id);
 
     const handleDel = () => {
         const confirm = window.confirm(`are you sure delete your ${eventName} review?`)
 
         if (confirm) {
-            fetch(`http://localhost:5000/reviews/${_id}`, {
+            fetch(`https://assignment-11-server-sable.vercel.app/reviews/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

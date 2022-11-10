@@ -14,11 +14,12 @@ const SingleService = () => {
     const { about, catagory, device, price, img, _id, provider } = allData
     // about
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?eventName=${catagory}`)
+        fetch(`https://assignment-11-server-sable.vercel.app/reviews?eventName=${catagory}`)
             .then(res => res.json())
-            .then(data => setRev(data))
+            .then(data => {
+                setRev(data)
+            })
     }, [catagory])
-
     // console.log(allData);
 
 

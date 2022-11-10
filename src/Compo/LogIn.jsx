@@ -18,13 +18,13 @@ const LogIn = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value
-        console.log(email, password);
+        // console.log(email, password);
         signIN(email, password)
             .then(res => {
                 const user = res.user
                 console.log(user);
                 form.reset()
-                navigate(form, { replace: true })
+                navigate(from, { replace: true })
             })
             .then(res => res.json())
             .catch(err => console.error(err))

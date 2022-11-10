@@ -8,7 +8,7 @@ const Demo = () => {
     const [demoData, setDemoData] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/demo')
+        fetch('https://assignment-11-server-sable.vercel.app/demo')
             .then(res => res.json())
             .then(data => setDemoData(data))
     }, [])

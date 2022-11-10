@@ -11,7 +11,7 @@ const MyEvent = () => {
     const [event, setevent] = useState()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service?email=${user?.email}`)
+        fetch(`https://assignment-11-server-sable.vercel.app/service?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setevent(data))
             .catch(err => console.error(err))

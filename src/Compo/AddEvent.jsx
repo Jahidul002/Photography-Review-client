@@ -24,7 +24,7 @@ const AddEvent = () => {
             price: Price,
             email: Email
         }
-        fetch('http://localhost:5000/services', {
+        fetch('https://assignment-11-server-sable.vercel.app/services', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const AddEvent = () => {
 
 
     return (
-        <div>
+        <div className='mb-5'>
             <form onSubmit={handleSub} className="card-body">
                 <div className="form-control">
                     <label className="label">

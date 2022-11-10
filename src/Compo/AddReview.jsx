@@ -31,7 +31,7 @@ const AddReview = () => {
             number: number,
             review: reviewTxt
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-11-server-sable.vercel.app/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

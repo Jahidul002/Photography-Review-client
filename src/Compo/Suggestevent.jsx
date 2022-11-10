@@ -7,7 +7,7 @@ const Suggestevent = () => {
     const [data, setData] = useState()
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://assignment-11-server-sable.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setData(data)
