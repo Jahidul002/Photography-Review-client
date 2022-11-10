@@ -9,7 +9,13 @@ const Suggestevent = () => {
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data)
+                // console.log(data);
+                // if (data.acknowledged) {
+                //     alert('added successfully')
+                // }
+            })
     }, [])
     // console.log(data);
     return (

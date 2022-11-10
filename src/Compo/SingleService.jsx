@@ -19,7 +19,7 @@ const SingleService = () => {
             .then(data => setRev(data))
     }, [catagory])
 
-    console.log(allData);
+    // console.log(allData);
 
 
     return (

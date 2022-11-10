@@ -3,7 +3,7 @@ import React from 'react';
 
 const DisplayMyEvent = ({ data }) => {
     const { about, catagory, device, img, price, _id } = data
-    console.log(data);
+    // console.log(data);
 
     const handleDel = () => {
         const agree = window.confirm('are you sure remove your review?')

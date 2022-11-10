@@ -1,6 +1,8 @@
 import React from 'react';
 import { useContext } from 'react';
 import { authContext } from '../Context/ContextApi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddEvent = () => {
     const { user } = useContext(authContext)
@@ -29,7 +31,11 @@ const AddEvent = () => {
             },
             body: JSON.stringify(theService)
         })
-
+            .then(data => {
+                console.log(data);
+                toast("Successfully added event!");
+            })
+            .catch(er => console.error(er))
     }
 
 
@@ -76,6 +82,7 @@ const AddEvent = () => {
                 <div className="form-control mt-6">
                     <button className='btn btn-success' type="submit">Add Review</button>
                 </div>
+                <ToastContainer />
             </form>
         </div>
     );

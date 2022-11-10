@@ -3,6 +3,9 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { authContext } from '../Context/ContextApi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddReview = () => {
     const { user } = useContext(authContext)
@@ -36,7 +39,12 @@ const AddReview = () => {
             body: JSON.stringify(reviewData)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast("Review added Successfully!");
+                }
+            })
             .catch(error => {
                 console.log(error)
             });
@@ -82,6 +90,7 @@ const AddReview = () => {
                     <button className='btn btn-success' type="submit">Add Review</button>
                 </div>
             </form>
+            <ToastContainer />
         </div>
     );
 };

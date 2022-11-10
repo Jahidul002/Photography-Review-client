@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DisplaySuggest = ({ data }) => {
-    console.log(data);
+    // console.log(data);
     const { about, catagory, device, img, price } = data
     return (
         <div>
