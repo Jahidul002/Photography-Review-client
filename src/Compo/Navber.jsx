@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../Context/ContextApi';
 import logo from '../Utilities/assignmentLogo-1.png'
-
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 const Navber = () => {
     const { user, LogOut } = useContext(authContext)
@@ -62,6 +62,12 @@ const Navber = () => {
                                 <>
                                     <Link className='btn btn-outline btn-primary mx-3' to="signin">Sign In</Link>
                                     <Link className='btn btn-outline btn-primary mx-3' to="signup">Sign UP</Link>
+                                </>
+                        }
+                        {
+                            user?.uid ? <img className='h-10 w-10 rounded-full' src={user.photoURL}></img> :
+                                <>
+                                    <UserCircleIcon className="h-6 w-6 text-blue-500" />
                                 </>
                         }
                     </ul>

@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { authContext } from '../Context/ContextApi';
+import DisplayMyEvent from './DisplayMyEvent';
+
 
 const MyEvent = () => {
     const { user } = useContext(authContext)
@@ -14,11 +16,11 @@ const MyEvent = () => {
             .then(data => setevent(data))
             .catch(err => console.error(err))
     }, [user?.email])
-    console.log(event);
+    // console.log(event);
     return (
-        <div>
+        <div className='md:grid grid-cols-3 gap-10'>
             {
-                event?.map()
+                event?.map(ev => <DisplayMyEvent key={ev._id} data={ev}></DisplayMyEvent>)
             }
         </div>
     );

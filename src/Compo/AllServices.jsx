@@ -1,8 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { authContext } from '../Context/ContextApi';
 import DisplayAllServices from './DisplayAllServices';
+import Suggestevent from './Suggestevent';
 
 const AllServices = () => {
+    const { user } = useContext(authContext)
     const allData = useLoaderData()
     return (
         <div>
@@ -16,14 +20,19 @@ const AllServices = () => {
                     }
                 </div>
             </div>
-            <div className='my-10'>
-                <h1 className='bg-teal-800 text-2xl py-5 text-center font-bold'>Suggest Us Event That I can Provide You</h1>
-
+            <div className='my-10 flex justify-between bg-teal-800'>
+                <h1 className=' text-2xl py-5 text-center font-bold'>Suggest Us Event That I can Provide You</h1>
+                <div className='py-3'>
+                    {
+                        user?.uid ? <Link to="/eventadd">
+                            <button className='btn'>Add Event</button>
+                        </Link> :
+                            <Link to="/signin" className='btn'>Log In for Add event</Link>
+                    }
+                </div>
             </div>
             <div>
-                <Link to="/eventadd">
-                    <button className='btn'>Add Event</button>
-                </Link>
+                <Suggestevent></Suggestevent>
             </div>
         </div>
     );

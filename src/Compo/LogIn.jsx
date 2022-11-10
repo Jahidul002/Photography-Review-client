@@ -1,9 +1,13 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../Context/ContextApi';
 
+
 const LogIn = () => {
+    const provider = new GoogleAuthProvider()
+    const { googleLogIn } = useContext(authContext)
     const { signIN } = useContext(authContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -25,6 +29,16 @@ const LogIn = () => {
             .then(res => res.json())
             .catch(err => console.error(err))
     }
+
+    const handlegoogle = () => {
+        googleLogIn(provider)
+            .then(res => {
+                const user = res.user
+                console.log(user);
+            })
+            .catch(e => console.error(e))
+    }
+
 
     return (
         <div>
@@ -55,6 +69,7 @@ const LogIn = () => {
                             </div>
                         </form>
                     </div>
+                    <button onClick={handlegoogle} className="btn btn-wide btn-outline btn-primary">Google</button>
                 </div>
             </div>
         </div>
