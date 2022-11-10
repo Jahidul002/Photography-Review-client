@@ -6,6 +6,8 @@ import AllServices from '../Compo/AllServices';
 import Blog from '../Compo/Blog';
 import Home from '../Compo/Home';
 import LogIn from '../Compo/LogIn';
+import MyEvent from '../Compo/MyEvent';
+import Myreview from '../Compo/Myreview';
 import PrivateRoute from '../Compo/PrivateRoute';
 import Register from '../Compo/Register';
 import Root from '../Compo/Root';
@@ -48,9 +50,19 @@ export const routerGoro = createBrowserRouter([
                 element: <PrivateRoute><AddReview></AddReview></PrivateRoute>
             },
             {
+                path: 'my-review',
+                element: <PrivateRoute><Myreview></Myreview></PrivateRoute>
+            },
+            {
                 path: 'eventadd',
                 element: <PrivateRoute><AddEvent></AddEvent></PrivateRoute>
+            },
+            {
+                path: 'addedevent',
+                loader: () => fetch('http://localhost:5000/services'),
+                element: <MyEvent></MyEvent>
             }
+
         ]
     }
 ])

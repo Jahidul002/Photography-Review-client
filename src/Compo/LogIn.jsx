@@ -1,10 +1,13 @@
 import React from 'react';
 import { useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../Context/ContextApi';
 
 const LogIn = () => {
     const { signIN } = useContext(authContext)
-
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const handleSub = (event) => {
         event.preventDefault()
@@ -17,7 +20,9 @@ const LogIn = () => {
                 const user = res.user
                 console.log(user);
                 form.reset()
+                navigate(form, { replace: true })
             })
+            .then(res => res.json())
             .catch(err => console.error(err))
     }
 

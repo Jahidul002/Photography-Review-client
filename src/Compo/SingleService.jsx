@@ -12,14 +12,14 @@ const SingleService = () => {
     const [rev, setRev] = useState()
     const allData = useLoaderData()
     const { about, catagory, device, price, img, _id, provider } = allData
-
+    // about
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?eventName=${catagory}`)
             .then(res => res.json())
             .then(data => setRev(data))
     }, [catagory])
 
-    // console.log(rev);
+    console.log(allData);
 
 
     return (
@@ -38,32 +38,26 @@ const SingleService = () => {
                     </div>
                 </div>
             </div>
-            <div>
 
-
-
-                <div className="overflow-x-auto w-full">
-                    <table className="table w-full">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Review</th>
-                                <th>Event Name</th>
-                                <th>Email</th>
-                                {user?.uid ? <th>Action</th> : ""}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                rev?.map(dt => <ReviewUser key={dt._id} data={dt}></ReviewUser>)
-                            }
-                        </tbody>
-                    </table>
+            <div className='mt-20'>
+                <h1 className='bg-teal-800 text-center font-semibold'>Reviews Of <span className='text-2xl font-bold text-teal-400'> {catagory}</span> event</h1>
+                <div className='md:grid grid-cols-3 gap-5 my-5'>
+                    {
+                        rev?.map(dt => <ReviewUser key={dt._id} data={dt}></ReviewUser>)
+                    }
                 </div>
             </div>
-            <Link to={`/review/${_id}`}>
-                <button className='btn btn-outline'>Review Us</button>
-            </Link>
+            <div className='my-10'>
+                {user?.uid ?
+                    <Link to={`/review/${_id}`}>
+                        <button className='btn btn-outline'>Review Us</button>
+                    </Link>
+                    :
+                    <Link to={`/review/${_id}`}>
+                        <button className='btn btn-outline'>Log in for Review Us</button>
+                    </Link>
+                }
+            </div>
         </div>
     );
 };

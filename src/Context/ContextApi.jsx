@@ -25,6 +25,7 @@ const ContextApi = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
     const UpdtUserProfile = (profile) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
     const LogOut = () => {

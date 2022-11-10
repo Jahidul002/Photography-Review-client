@@ -17,7 +17,10 @@ const AllServices = () => {
                 </div>
             </div>
             <div className='my-10'>
-                <h1>Suggest Us Event That I can Provide You</h1>
+                <h1 className='bg-teal-800 text-2xl py-5 text-center font-bold'>Suggest Us Event That I can Provide You</h1>
+
+            </div>
+            <div>
                 <Link to="/eventadd">
                     <button className='btn'>Add Event</button>
                 </Link>

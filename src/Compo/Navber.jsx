@@ -2,6 +2,8 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../Context/ContextApi';
+import logo from '../Utilities/assignmentLogo-1.png'
+
 
 const Navber = () => {
     const { user, LogOut } = useContext(authContext)
@@ -14,8 +16,8 @@ const Navber = () => {
     }
 
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className='sticky top-0 z-10'>
+            <div className="navbar bg-base-100 ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -23,7 +25,12 @@ const Navber = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <Link className='btn btn-outline btn-primary  btn-xs' to="/">Home</Link>
-                            <Link className='btn btn-outline btn-primary  btn-xs' to="services">Services</Link>
+                            {user?.uid ? <>
+                                <Link to="my-review" className='btn btn-outline btn-primary  btn-xs'>My reviews</Link>
+                                <Link to="addedevent" className='btn btn-outline btn-primary  btn-xs'>My Added services</Link>
+                            </> : <Link className='btn btn-outline btn-primary  btn-xs' to="services">Services</Link>
+
+                            }
                             <Link className='btn btn-outline btn-primary  btn-xs' to="blog">Blog</Link>
                             {
                                 user?.uid ? <button onClick={handleOut} className='btn btn-outline btn-primary  btn-xs' >loguot</button>
@@ -35,12 +42,17 @@ const Navber = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link>
+                        <img className='h-16 ' src={logo} alt="" />
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         <Link className='btn btn-outline btn-primary mx-3' to="/">Home</Link>
-                        <Link className='btn btn-outline btn-primary mx-3' to="services">Services</Link>
+                        {user?.uid ? <>
+                            <Link to="my-review" className='btn btn-outline btn-primary mx-3'>My Reviews</Link>
+                            <Link to="addedevent" className='btn btn-outline btn-primary mx-3'>My Added Services</Link>
+                        </> : <Link className='btn btn-outline btn-primary mx-3' to="services">Services</Link>}
                         <Link className='btn btn-outline btn-primary mx-3' to="blog">Blog</Link>
                         {
                             user?.uid ?

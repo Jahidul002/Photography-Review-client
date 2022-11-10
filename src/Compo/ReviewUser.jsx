@@ -1,32 +1,41 @@
 import React from 'react';
+import { BeakerIcon, TrashIcon } from '@heroicons/react/24/solid'
 
 const ReviewUser = ({ data }) => {
-    const { Photo, email, eventName, name, review } = data
-    console.log(Photo);
+    const { _id, Photo, email, eventName, name, review } = data
+    console.log(_id);
+
+    const handleDel = () => {
+        const confirm = window.confirm(`are you sure delete your ${eventName} review?`)
+
+        if (confirm) {
+            fetch(`http://localhost:5000/reviews/${_id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(dt => {
+                    console.log(dt)
+                    document.location.reload()
+                })
+        }
+
+    }
     return (
-        <tr>
-            <td>
-                <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                            <img src={Photo} />
-                        </div>
-                    </div>
+        <div className='p-10 rounded-lg bg-lime-100'>
+            <div>
+                <div className='grid grid-cols-4'>
                     <div>
-                        <div className="font-bold">{name}</div>
+                        <img className='rounded-xl' src={Photo} alt="" />
+                    </div>
+                    <div className='col-span-2'>
+                        <p>{name}</p>
+                        <p><small>{email}</small></p>
                     </div>
                 </div>
-            </td>
-            <td>
-                {review}
-                <br />
-                <span className="badge badge-ghost badge-sm"></span>
-            </td>
-            <td>{eventName}</td>
-            <th>
-                <h1>{email}</h1>
-            </th>
-        </tr>
+                <p className='text-xl'>{eventName}</p>
+                <p className='font-semibold'>{review}</p>
+            </div>
+        </div>
     );
 };
 

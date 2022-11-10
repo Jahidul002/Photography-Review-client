@@ -8,8 +8,8 @@ const AddReview = () => {
     const { user } = useContext(authContext)
     const [data, setData] = useState()
     const allDAta = useLoaderData()
-    const { catagory, _id } = allDAta
-    // console.log(catagory, _id);
+    const { catagory, _id, img } = allDAta
+    // console.log(allDAta);
     const handleSub = (event) => {
         event.preventDefault()
         const form = event.target
@@ -21,6 +21,7 @@ const AddReview = () => {
         const reviewData = {
             eventName: catagory,
             eventID: _id,
+            eventImg: img,
             name: name,
             email: email,
             Photo: Photo,
@@ -36,6 +37,10 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
+            .catch(error => {
+                console.log(error)
+            });
+
     }
 
 
@@ -47,19 +52,19 @@ const AddReview = () => {
                     <label className="label">
                         <span className="label-text">Name</span>
                     </label>
-                    <input type="text" name='name' placeholder="email" defaultValue={user?.displayName} className="input input-bordered" />
+                    <input type="text" name='name' placeholder="email" defaultValue={user?.displayName} className="input input-bordered" readOnly />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="text" name='email' placeholder="email" defaultValue={user?.email} className="input input-bordered" />
+                    <input type="text" name='email' placeholder="email" defaultValue={user?.email} className="input input-bordered" readOnly />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Photo</span>
                     </label>
-                    <input type="text" name='url' placeholder="email" defaultValue={user?.photoURL} className="input input-bordered" />
+                    <input type="text" name='url' placeholder="email" defaultValue={user?.photoURL} className="input input-bordered" readOnly />
                 </div>
                 <div className="form-control">
                     <label className="label">
